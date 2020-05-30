@@ -1,0 +1,13 @@
+Önceki projelerimizde arayüz işlemleri yapmak için ui veya depolama için storage
+gibi ayrı ayrı dosyalar oluşturup o şekilde kullanıyorduk.
+Büyük projelerde bir sürü dosya olabilir ve her bir dosya, başka bir 
+javascript dosyası kullanıyor olabilir.
+Diyelimki 100 tane dosyamız olsun. Onları html sayfasında alt alta yazıyorduk.
+Fakat bu çok güzel bir yöntem değil. Ayrıca hepsinin yüklenmesi oldukça zaman alıcak
+ve performansta kayıp yaşatacaktır.
+Onun yerine dosyalarda import ederek birbirlerini kullanarak oldukça iyi bir performans
+yakalayabiliriz ve tek bir javascript dosyası elde edebileceğiz.
+Ayrıca bu javascript dosyalarını sıralamaya koymak oldukça zor.
+Webpack bunları kendi arasında sıraya koyuyor, yani tüm her şeyi hallederek
+bizi 100lerce dosyadan kurtarıp tek bir dosya oluşturuyor, ayrıca sadece gerektiğinde
+dosyaları yüklüyor ve performansta kazanç sağlıyor.

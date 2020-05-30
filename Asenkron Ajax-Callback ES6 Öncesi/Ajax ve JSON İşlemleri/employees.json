@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Mustafa Murat Coşkun",
+        "department": "Bilişim",
+        "salary": 3500
+    },
+    {
+        "name": "Oğuz Artıran",
+        "department": "Web Design",
+        "salary": 4000
+    },
+    {
+        "name": "Sercan Gündoğan",
+        "department": "Web Development",
+        "salary": 5000
+    }
+    
+]

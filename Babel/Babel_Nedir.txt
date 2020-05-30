@@ -1,0 +1,4 @@
+Babel bir transcompiler'dır yani aslında bir tercümandır.
+Bizim JavaScript'le yazılan kodlarımızı EcmaScript 5'e çevrilmesini sağlar.
+Bunu yapmamızın sebebi ES5'in tüm tarayıcılarda kullanılabildiği fakat ES6 ve ES7'nin son sürümlerde falan kullanılabildiği için
+Yani ES6 ve ES7 ile yazılan kodlarımızı ES5'e çevirir.
