@@ -1,0 +1,22 @@
+-----    UPDATE     -----
+db.instructors.updateOne({name : "Mustafa Murat Coşkun"}, {$set : {rating : 4.6}});
+-> İsmi Mustafa Murat Coşkun olan veriyi'verileri seçer verileri
+-> rating'i 4.6 yapar.
+
+
+db.instructors.updateMany({} , {$set : {students : 10000}});
+-> Bütün verileri seçer, hepsinin students değerlerini 10000 yapar.
+
+db.instructors.updateMany({status : "A"}, {$set : {students : 15000}});
+-> Status'ü "A" olan verileri seçer ve onların students değerlerini 15000 yapar.
+
+-----   DELETE  -----
+
+db.instructors.deleteOne({name : "Mustafa Murat Coşkun"});
+-> İsmi "Mustafa Murat Coşkun" olan veriyi seçer ve siler
+
+db.instructors.deleteMany({status : "A"});
+-> Statüs'ü A olanları seçer ve onları siler.
+
+db.instructors.deleteMany({});
+-> Tüm verileri Siler.

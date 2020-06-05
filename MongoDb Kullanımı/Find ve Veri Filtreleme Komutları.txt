@@ -1,0 +1,36 @@
+-----   Find, FindOne ve Filtreleme -----
+db.instructors.find().pretty() -> Bütün veriler girebilirsin
+db.instructors.find({}).pretty() -> Aynı şekilde hepsi gelir.
+db.instructors.find({}).pretty().count() -> veri Sayısını gösterir
+db.instructors.findOne(); -> Sadece bir tane veri döner (En baştaki veri)
+db.instructors.findOne({}) -> Aynı şekilde ilk gördüğü veriyi getirir sadece.
+
+db.instructors.find({}, {name:1, rating:1}).pretty();
+-> Bütün verileri seçer(En baştaki boş olan parantezlerle bunu belli ederiz),
+ sadece name ve ratinglerini getirir. (id'leri zaten default olarak gelir ne olursa olsun)
+
+db.instructors.find({}, {courses:0}).pretty();
+-> Bütün verileri getir fakat onların courses değerlerini getirme
+-> Yani aslında 1 getir demek 0 getirme demek.
+
+db.instructors.find({status : "A"}).pretty();
+-> Bu sefer find'ın ilk argümanına boş değer vermedik ve bu yüzden tüm verileri dönmeyecektir.
+-> Döneceği veriler sadece status'ü "A" olan verilerdir.
+
+db.instructors.find({status : "A"}).pretty().count();
+-> Status'ü A olan verilerin toplam Sayısını
+
+db.instructors.find({courses : "Python"}).pretty()
+-> Verilerden, courses özelliğinin içinde Python olan verileri döner
+-> Burada bulunan courses aslında bir array. İçinde varsa o veriyi dönüyor gibi düşünebiliriz.
+
+
+
+db.instructors.find({status: "B", courses : "Python"}).pretty();
+-> status'ü "B" olan ve courses'unda "Python" bulunan veri/veriler gelir.
+
+db.instructors.find({rating : {$gt : 4.5}}).pretty();
+-> Rating'i 4.5'tan fazla olanları getirir.
+
+db.instructors.find({rating : {$gte : 4.5}}).pretty();
+-> Rating'i 4.5 veya 4.5'tan fazla olanları getirir.

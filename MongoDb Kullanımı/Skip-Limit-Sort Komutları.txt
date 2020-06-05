@@ -1,0 +1,26 @@
+db.instructors.find({}).pretty();
+-> Tüm verileri baştan sona sıralayarak verir.(id 1 to last id)
+
+db.instructors.find().skip(1).pretty();
+-> İlk kaydı atlayarak devam eder, 1'i atlar.
+
+db.instructors.find().limit(2).pretty();
+-> En baştan başlayarak sadece 2 tane veri getirir.
+
+db.instructors.find().skip(1).limit(2).pretty();
+-> İlk veriyi atlayıp devam eder, sadece 2 tane veri getirir.
+
+db.instructors.find({}, {rating : 1}).pretty();
+-> Bütün verileri seçer, sadece ratingleri getirir.
+
+db.instructors.find({}, {rating : 1}).sort({rating : 1}).pretty();
+-> Bütün verileri seçer, sadece ratingleri getirir 
+-> ve bunları küçükten büyüğe doğru getirir
+
+db.instructors.find({}, {rating : 1}).sort({rating : -1}).pretty();
+-> Bütün verileri seçer, sadece ratingleri getirir 
+-> ve bunları büyükten küçüğe doğru getirir
+
+db.instructors.find({}, {name : 1}).sort({rating : 1}).pretty();
+-> Bütün verileri seçer, sadece nameleri getirir 
+-> ve bunları alfabetik sıraya göre getirir

@@ -1,0 +1,30 @@
+-- products adında bir collection'ımız var ve içinde bazı veriler var--
+
+db.products.aggregate([{$group : {_id : "$category", num_products : {$sum : 1}}}])
+-> category'e göre gruplama yapıcaz ve kaç tane ürün varsa
+-> o değeri num_products'a yazacağız.
+
+{ "_id" : "House", "num_products" : 1 }
+{ "_id" : "Book", "num_products" : 2 }
+{ "_id" : "Electronic", "num_products" : 2 }
+
+-> "House" kategorisinde 1 tane ürünümüz var
+-> "Book" kategorisinde 2
+-> "Electronic" kategorisinde 2
+
+
+
+db.products.aggregate([{$group : {_id : "$category", average_price : {$avg : "$price"}}}])
+-> category'e göre gruplama ve grupların ortalama fiyatlarını bulucaz.
+
+->  { "_id" : "Electronic", "average_price" : 4500 }
+    { "_id" : "Book", "average_price" : 20 }
+    { "_id" : "House", "average_price" : 2000 }
+
+
+db.products.aggregate([{$group : {_id : "$category", max_price : {$max : "$price"}}}])
+-> category'e göre gruplama ve grupların en yüksek fiyatını getirir.
+
+{ "_id" : "Electronic", "max_price" : 5000 }
+{ "_id" : "Book", "max_price" : 20 }
+{ "_id" : "House", "max_price" : 2000 }

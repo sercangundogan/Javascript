@@ -1,0 +1,13 @@
+Mongo db'ye cmd'den bağlanabilirsin. Bunun için sitesinden açtığın bir 
+cluster'a yeni bir user belirleyerek ve ip belirleyip(Her yerden bağlantı sağlama)
+sonrasında connection ekranına gelerek verdiği komutla beraber giriş sağlayabilirsin.
+
+Sonrasında komutlarla, database üzerinde işlem yapabilirsin.
+
+show dbs -> Database'leri gösterir(Collection içeren)
+use mongo-tutorial -> mongo-tutorial adındaki bir database'e geçeriz.
+show collections -> Collection'ları gösterir. ( Şuanda bulunduğun database)
+db -> Şuanda bulunduğun database'i gösterir.
+db.dropDatabase() -> Bulunduğun database'i siler.
+db.createCollection("courses") -> Bulunduğun database'e bir collection ekler
+                            -> virgül koyarak birden fazla ekleyebilirsin.

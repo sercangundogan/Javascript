@@ -1,0 +1,49 @@
+db.instructors.insertOne({
+  "name": "Mustafa Murat Coşkun",
+  "students": 10000,
+  "rating": 4.5,
+  "courses": ["Python", "Java", "JavaScript"],
+  "status": "A"
+}) 
+
+-> instructors adında bir collection oluşturup için veri girebilirsin.
+
+show collections ile oluşmuş mu diye bakabilirsin
+
+db.instructors.find(); -> "instructors" collection'undaki tüm bilgileri getirir
+db.instructors.find().pretty(); -> Veriler daha güzel gözükür.
+
+
+
+-----   Birden fazla data'yı aynı anda eklemek -----
+
+
+db.instructors.inserMany([
+  
+  {
+    "name": "Mert Toker",
+    "students": 10.0,
+    "rating": 4.5,
+    "courses": ["Python", "Java", "C#"],
+    "status": "A"
+  },
+  {
+    "name": "Can Kemer",
+    "students": 15.0,
+    "rating": 4.2,
+    "courses": ["Python", "Java", "JavaScript", "C++"],
+    "status": "A"
+  },
+  {
+    "name": "Turgay Altın",
+    "students": 20.0,
+    "rating": 4.6,
+    "courses": ["Python", "JavaScript", "Kotlin"],
+    "status": "B"
+  }
+])
+
+
+--> Birden fazla datayı, instructors adındaki collection'a ekler.
+
+db.instructors.find().pretty() -> Veriler eklenmiş mi diye kontrol edebilirsin.

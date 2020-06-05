@@ -1,0 +1,33 @@
+npm init ile bu dosyayı bir proje haline getirdik ve package.json oluşturduk
+
+npm install express ile expressJS2yi yükledik
+
+Her bir değişiklikte otomatik olarak yeniden başlatmak için
+npm install -D nodemon -> -D ile sadece development'a yüklemiş olucaz.
+
+Yei bir script ekledik(package.json)
+-> "dev" : "nodemon server.js"
+
+server.js'yi oluşturduk.
+Gerekli dosyaları yazdık ve test etmek için konsola
+-> npm run dev
+yazdık. Artık serverimiz ayağa 5000 Portunda ayağa kalkmış oldu.
+
+----    POSTMAN     -----
+Postman ile requestlerimizi yapıcaz. Chrome Eklentilerinde bulunuyor.
+Giriş yaptıktan sonra yeni bir workspace(collection) oluşturdum.
+Üst tarafta Get'in yanındaki yere "http://localhost:5000/users" a bir request attım ve json objesini elde ettim.
+deneme olarak google'a da bir get request atabilirsin.
+
+
+-----   Middleware  -----
+Mesela bir sayfa göstericeksin ancak öncesinde giriş yapılıp yapılmadığını kontrol etmek istiyorsun.
+(Python'daki @login_required("login) fonksiyonu gibi düşünülebilir.)
+Middleware aslında ara katmanlara verilen isim. Middleware içinde bunlar kontrol edilir
+ve izin verilirse bir sonraki request'e geçilir.
+(User ile Api arasında bulunan bir katman olarak düşünülebilir. Burda da
+giriş yapılmış mı gibi kontrolleri yapıyor ve sonrasında ilgili response'u dönüyor
+ya da diğer request'e geçiyor.)
+
+get(req,res,next) komutundaki next aslında bunun için kullanılıyor.
+Bunu middleware.js dosyasında açıkladım.
