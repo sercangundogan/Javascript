@@ -1,0 +1,136 @@
+npm init ile package oluşturduk
+
+npm install express ile express paketini kurduk
+
+entry point'i yani server.js'i oluşturduk.
+
+Server işlemleri için basit kodları yazdım ve
+yeni bir script ekledim.
+"start" : "node server.js"
+
+Sonrasında npm start ile server ı çalıştırdık.
+http://localhost:5000'e gidip kontrol edebilirsin.
+(Cannot Get) yazarsa sıkıntı yok çünkü henüz bir get request için response yazılmadı.
+
+İlk request'i yazdık ve serverı kapatıp çalıştırdık.
+Sürekli olarak kapanıp açınmasını otomatikleştirmek istersek,
+npm install -D nodemon -> Development'e kurucaz
+Package.json'ı kontrol edebilirsin bu işlemden sonra.
+
+Sonrasında script'i ekledik.
+"dev" : "nodemon server.js"
+
+sonrasında konsole npm run dev diyerek çalıştırabiliriz.
+
+-----Projenin Config Dosyasını Hazırlamak-----
+Öcenlikle bu config'e dışardan ulaşmak için bir tane pakete ihtiyacımız var.
+Her şeyden önce bir tane coınfig adında klasör oluşturuyoruz.
+Herhangi bir ayar dosyası varsa onu burada tutuyoruz.
+Bunun içine env klasörünü oluşturuyoruz.
+Onun altına da config.env dosyasını oluşturup server'ımızın ayarlarını burada yapıyoruz.
+
+bu klasörü server.js 'te kullanmak için bahsettiğim paket 
+-> dotenv 
+
+npm install dotenv
+Sonra bunu server.js'te üst satırlarda dahil ediyoruz.
+
+-----Routes-----
+Gelen requestleri flasktaki gibi tek bir dosyada tutmak yerine
+yeni bir routes adında klasör açıp orada ilgili response lar için dosyaları oluşturduk.
+Bu noktada da aslıdan biraz django'ya benzer bir hal aldı.
+
+
+-----Controllers----
+Bunları da modüler bir hale getirmek için ayrı bir klasör'de topluyoruz.
+
+
+-----MongoDB Bağlantısı-----
+MongoDb veritabanı bağlantısı için mongoose kütüphanesini kullanıcaz.
+Config dosyasını ayarlıyoruz.
+npm install mongoose
+Dışarıdan eklediğimiz paketleri daha rahat kullanmak için
+helpers adındaki klasörü oluşturduk
+altında database için dosyalarımızı oluşturduk
+
+
+
+-----Schemas(Models)-Kullanıcı Modeli-----
+Bunun içib öncelikle bir tane models adında klasör açtık.
+Modelleri burada toplayacağız.
+Sonrasında içine user.js adında bir dosya açıp kodları yazdık.
+
+
+-----Error Handling - Hata Yakalamak -----
+Handler'ları oluştuduğumuz middlewares klasöründe tutucaz.
+
+-----Merkezi Error Handler Oluşturmak-----
+Helpers'ın içine error klasörü oluşturduk ve orada da error klasörü oluşturduk.
+Sonrasında CustomError.js adlı class yapılı dosyamızı oluşturduk.
+
+
+-----Express Async Handler-----
+Bu bir express kütüphanesi. Async Await yapılarında handle etmeyi sağlıyor.
+npm install express-async-handler
+
+
+-----Parola Hashlemek-----
+Kütüphane ile yapıcaz.
+npm install bcryptjs
+Bu sayede User'ı kaydetmeden önce hashleme işlemi yapıcaz.(User.js dosyasında)
+
+
+-----Json Web Token ile Oturum Kontrolü-----
+npm install jsonwebtoken
+
+
+-----Cookie-----
+Token'ı başka bir yerde oluşturup fonksiyonu ordan çağırıcağız.
+Helpers'ın altında authorization klasörünü açtım ve altında
+sendJwtToClient dosyasını oluşturdum.
+
+
+-----Statik Dosyalar-----
+public klasörü oluşturuldu.
+Aynı zamanda bunu express js'ye belirtmemiz lazım yani
+statik dosyalarını nerede kullanacağımızı bilmesini sağlamalıyız.
+Bunu server.js dosyasında yaptık.
+
+
+-----Fotoğraf Eklemek-----
+Fotoğraf upload işlemlerinde kütüphane kullanıcaz --> "multer"
+-> npm install multer
+
+
+-----Kullanıcıya Mail Göndermek------
+Bunu bir paket ile yapıcaz.
+-> npm install nodemailer
+
+
+
+
+-----Question Modeline Slug Alanı Eklemek-----
+Bunu kendimiz de oluşturabiliriz fakat bunun için yazılmış
+halihazırda bir paket var -> slugify
+->npm install slugify
+
+
+
+-----Dummy - G
+Otomatik import etmeyi ve otomatik olarak verileri silmeye
+yarayan bir javascript dosyasıdır.
+Dummy adında klasör açıp içlerine json dosyalarını kopyaladım.
+Burdaki dosyaların tümünü aynı anda veri tabanına eklemiş veya silmiş olucaz.
+Bunun için öncelikle package.json dosyasında yeni iki script yazdım.
+    "import" : "node dummy-generator --import",
+    "delete" : "node dummy-generator --delete"
+Çalıştırmak için
+    npm run import 
+    npm run delete
+
+
+----Paginate Nedir-----
+Pagination, sayfaların daha hızlı yüklenmesi için kısıtlama
+getirmek olarak düşünebiliriz.
+Mesela İnstagram'a girdiğimizde sadece 20 tane fotoğraf yükleniyor.
+Aşağı kaydırdıkça bu devam ediyor.
